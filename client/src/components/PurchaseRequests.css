@@ -1,0 +1,172 @@
+
+.pr-page {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 28px;
+  color: #e2e8f0;
+}
+
+.pr-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.pr-heading h2 {
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+
+.pr-heading p {
+  color: #94a3b8;
+  margin: 0;
+  font-size: 14px;
+}
+
+.pr-total {
+  background: #111e32;
+  border: 1px solid #293950;
+  border-radius: 10px;
+  padding: 14px 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pr-total strong {
+  font-size: 25px;
+}
+
+.pr-total span {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.pr-toolbar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pr-toolbar input,
+.pr-toolbar select {
+  background: #111e32;
+  border: 1px solid #293950;
+  border-radius: 8px;
+  color: #e2e8f0;
+  padding: 12px;
+  outline: none;
+}
+
+.pr-toolbar input {
+  flex: 1;
+  min-width: 220px;
+}
+
+.pr-toolbar select {
+  min-width: 140px;
+}
+
+.pr-table-wrapper {
+  overflow-x: auto;
+  background: #111e32;
+  border: 1px solid #293950;
+  border-radius: 12px;
+}
+
+.pr-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1050px;
+  font-size: 13px;
+}
+
+.pr-table th {
+  color: #94a3b8;
+  text-align: left;
+  padding: 16px 13px;
+  border-bottom: 1px solid #293950;
+  white-space: nowrap;
+}
+
+.pr-table td {
+  padding: 15px 13px;
+  border-bottom: 1px solid #25344a;
+  white-space: nowrap;
+}
+
+.pr-table tbody tr:hover {
+  background: #18273d;
+}
+
+.pr-id {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.pr-description {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pr-urgency {
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+}
+
+.pr-normal {
+  color: #60a5fa;
+  background: #1e3a5f;
+}
+
+.pr-emergency {
+  color: #fbbf24;
+  background: #49351b;
+}
+
+.pr-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.pr-pagination div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pr-pagination button {
+  padding: 9px 13px;
+  background: #17263c;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.pr-pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pr-message,
+.pr-empty {
+  padding: 30px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.pr-error {
+  padding: 20px;
+  background: #451f29;
+  color: #fca5a5;
+  border-radius: 8px;
+}

@@ -1,7 +1,8 @@
+﻿import { apiUrl } from "./api";
 
 import { useEffect, useMemo, useState } from "react";
 
-const API = "http://localhost:3000/api/assessment/purchase-orders";
+const API = apiUrl("/api/assessment/purchase-orders");
 
 const money = value =>
   new Intl.NumberFormat("en-IN", {
@@ -388,7 +389,7 @@ export default function PurchaseOrders() {
                 style={styles.button}
                 onClick={() => setSelected(null)}
               >
-                ✕ Close
+                âœ• Close
               </button>
             </div>
 
@@ -497,3 +498,4 @@ export default function PurchaseOrders() {
     </div>
   );
 }
+

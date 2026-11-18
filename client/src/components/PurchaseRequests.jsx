@@ -1,3 +1,4 @@
+﻿import { apiUrl } from "../api";
 
 import { useEffect, useMemo, useState } from "react";
 import "./PurchaseRequests.css";
@@ -5,11 +6,11 @@ import "./PurchaseRequests.css";
 const PAGE_SIZE = 10;
 
 function formatDate(value) {
-  if (!value) return "—";
+  if (!value) return "â€”";
 
   const date = new Date(value);
 
-  if (Number.isNaN(date.getTime())) return "—";
+  if (Number.isNaN(date.getTime())) return "â€”";
 
   return date.toLocaleDateString("en-IN");
 }
@@ -27,7 +28,7 @@ export default function PurchaseRequests() {
     const fetchRequests = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/purchase-requests"
+          apiUrl("/api/purchase-requests")
         );
 
         if (!response.ok) {
@@ -179,14 +180,14 @@ export default function PurchaseRequests() {
                   >
                     <td className="pr-id">{request.pr_no}</td>
                     <td>{request.pr_line}</td>
-                    <td>{request.requester || "—"}</td>
-                    <td>{request.plant || "—"}</td>
-                    <td>{request.item_code || "—"}</td>
+                    <td>{request.requester || "â€”"}</td>
+                    <td>{request.plant || "â€”"}</td>
+                    <td>{request.item_code || "â€”"}</td>
                     <td className="pr-description">
-                      {request.description || "—"}
+                      {request.description || "â€”"}
                     </td>
                     <td>
-                      {request.quantity ?? "—"}{" "}
+                      {request.quantity ?? "â€”"}{" "}
                       {request.uom || ""}
                     </td>
                     <td>{formatDate(request.need_by_date)}</td>
@@ -199,7 +200,7 @@ export default function PurchaseRequests() {
                             : "pr-normal"
                         }`}
                       >
-                        {request.urgency || "—"}
+                        {request.urgency || "â€”"}
                       </span>
                     </td>
                   </tr>
@@ -259,3 +260,4 @@ export default function PurchaseRequests() {
     </section>
   );
 }
+

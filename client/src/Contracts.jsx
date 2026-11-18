@@ -1,7 +1,8 @@
+﻿import { apiUrl } from "./api";
 
 import { useEffect, useMemo, useState } from "react";
 
-const API = "http://localhost:3000/api/contracts";
+const API = apiUrl("/api/contracts");
 
 const money = value =>
   new Intl.NumberFormat("en-IN", {
@@ -364,7 +365,7 @@ export default function Contracts() {
                 </h2>
 
                 <p style={styles.muted}>
-                  {selected.supplier_name} · {selected.supplier_id}
+                  {selected.supplier_name} Â· {selected.supplier_id}
                 </p>
               </div>
 
@@ -372,7 +373,7 @@ export default function Contracts() {
                 style={styles.button}
                 onClick={closeDetails}
               >
-                ✕ Close
+                âœ• Close
               </button>
             </div>
 
@@ -468,3 +469,4 @@ export default function Contracts() {
     </div>
   );
 }
+

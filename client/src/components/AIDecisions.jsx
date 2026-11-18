@@ -1,3 +1,4 @@
+﻿import { apiUrl } from "../api";
 
 import { useEffect, useMemo, useState } from "react";
 import "./AIDecisions.css";
@@ -24,7 +25,7 @@ export default function AIDecisions() {
     async function fetchDecisions() {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/assessment/decisions"
+          apiUrl("/api/assessment/decisions")
         );
 
         if (!response.ok) {
@@ -197,10 +198,10 @@ export default function AIDecisions() {
               <tbody>
                 {visible.map((d, index) => (
                   <tr key={d.group_id || index}>
-                    <td className="ai-group">{d.group_id || "—"}</td>
-                    <td>{d.item_code || "—"}</td>
-                    <td>{d.plant || "—"}</td>
-                    <td>{d.total_quantity ?? "—"}</td>
+                    <td className="ai-group">{d.group_id || "â€”"}</td>
+                    <td>{d.item_code || "â€”"}</td>
+                    <td>{d.plant || "â€”"}</td>
+                    <td>{d.total_quantity ?? "â€”"}</td>
                     <td>{formatCurrency(d.requirement_value)}</td>
                     <td>
                       <span className={`ai-decision ${
@@ -210,16 +211,16 @@ export default function AIDecisions() {
                           ? "ai-sourcing"
                           : "ai-review"
                       }`}>
-                        {d.decision || "—"}
+                        {d.decision || "â€”"}
                       </span>
                     </td>
-                    <td>{d.route || "—"}</td>
+                    <td>{d.route || "â€”"}</td>
                     <td>
                       {d.supplier_name ||
                         d.suppliers?.[0]?.supplier_name ||
-                        "—"}
+                        "â€”"}
                     </td>
-                    <td>{d.policy_clause || "—"}</td>
+                    <td>{d.policy_clause || "â€”"}</td>
                   </tr>
                 ))}
 
@@ -266,3 +267,4 @@ export default function AIDecisions() {
     </section>
   );
 }
+

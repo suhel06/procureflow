@@ -26,5 +26,5 @@ app.get("/api/health", (req, res) => {
         message: "ProcureFlow API is running!"
     });
 });
-app.use("/api/purchase-requests", purchaseRequestRoutes);
+
 module.exports = app;

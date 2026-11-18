@@ -1,4 +1,4 @@
-
+﻿import { apiUrl } from "./api";
 import { useState, useEffect } from "react";
 import PurchaseRequests from "./components/PurchaseRequests";
 import AIDecisions from "./components/AIDecisions";
@@ -6,6 +6,7 @@ import PurchaseOrders from "./PurchaseOrders";
 import Contracts from "./Contracts";
 import Suppliers from "./Suppliers";
 import SettingsPage from "./SettingsPage";
+
 import {
   LayoutDashboard,
   FileText,
@@ -53,7 +54,7 @@ const decisions = [
     decision: "PO",
     route: "SPOT_PO",
     supplier: "S020",
-    value: "₹1,31,675.78",
+    value: "â‚¹1,31,675.78",
     status: "Approved"
   },
   {
@@ -63,7 +64,7 @@ const decisions = [
     decision: "PO",
     route: "SPOT_PO",
     supplier: "S023",
-    value: "₹1,39,672.80",
+    value: "â‚¹1,39,672.80",
     status: "Approved"
   },
   {
@@ -72,8 +73,8 @@ const decisions = [
     plant: "PUN1",
     decision: "SOURCING",
     route: "RFQ",
-    supplier: "—",
-    value: "₹80,300.00",
+    supplier: "â€”",
+    value: "â‚¹80,300.00",
     status: "Sourcing"
   },
   {
@@ -82,8 +83,8 @@ const decisions = [
     plant: "CHK1",
     decision: "SOURCING",
     route: "RFQ",
-    supplier: "—",
-    value: "₹3,95,027.34",
+    supplier: "â€”",
+    value: "â‚¹3,95,027.34",
     status: "Sourcing"
   },
   {
@@ -93,7 +94,7 @@ const decisions = [
     decision: "PO",
     route: "SPOT_PO",
     supplier: "S027",
-    value: "₹1,59,118.30",
+    value: "â‚¹1,59,118.30",
     status: "Approved"
   }
 ];
@@ -116,8 +117,8 @@ const [assessmentRunning, setAssessmentRunning] = useState(false);
       try {
         const [summaryResponse, decisionsResponse] =
           await Promise.all([
-            fetch("http://localhost:3000/api/assessment/summary"),
-            fetch("http://localhost:3000/api/assessment/decisions")
+            fetch(apiUrl("/api/assessment/summary")),
+            fetch(apiUrl("/api/assessment/decisions"))
           ]);
 
         if (!summaryResponse.ok || !decisionsResponse.ok) {
@@ -194,7 +195,7 @@ const sourcingPercentage = decisionTotal
   }));
 
   const formatCrore = (value) =>
-    `₹${(value / 10000000).toFixed(2)} Cr`;
+    `â‚¹${(value / 10000000).toFixed(2)} Cr`;
 
   const metrics = [
     {
@@ -206,14 +207,14 @@ const sourcingPercentage = decisionTotal
     },
     {
       label: "Requirements",
-      value: summary?.total_decisions ?? "—",
+      value: summary?.total_decisions ?? "â€”",
       change: "Evaluated requirements",
       icon: Package,
       color: "purple"
     },
     {
       label: "Draft Purchase Orders",
-      value: summary?.total_purchase_orders ?? "—",
+      value: summary?.total_purchase_orders ?? "â€”",
       change: `${summary?.total_po_requirements ?? 0} PO requirements`,
       icon: ShoppingCart,
       color: "green"
@@ -222,9 +223,9 @@ const sourcingPercentage = decisionTotal
       label: "Total PO Value",
       value: summary
         ? formatCrore(summary.total_po_value)
-        : "—",
+        : "â€”",
       change: summary
-        ? `₹${summary.total_po_value.toLocaleString("en-IN")}`
+        ? `â‚¹${summary.total_po_value.toLocaleString("en-IN")}`
         : "Loading...",
       icon: TrendingUp,
       color: "orange"
@@ -238,7 +239,7 @@ const sourcingPercentage = decisionTotal
     plant: row.plant,
     decision: row.decision,
     route: row.route,
-    supplier: row.supplier_name || row.supplier_id || "—",
+    supplier: row.supplier_name || row.supplier_id || "â€”",
     value: new Intl.NumberFormat("en-IN", {
       style: "currency",
       currency: "INR"
@@ -257,12 +258,12 @@ const sourcingPercentage = decisionTotal
 const handleExportReport = async () => {
   try {
     const endpoints = [
-      ["summary", "http://localhost:3000/api/assessment/summary"],
-      ["decisions", "http://localhost:3000/api/assessment/decisions"],
-      ["purchase_orders", "http://localhost:3000/api/assessment/purchase-orders"],
-      ["purchase_requests", "http://localhost:3000/api/purchase-requests"],
-      ["contracts", "http://localhost:3000/api/contracts"],
-      ["suppliers", "http://localhost:3000/api/suppliers"]
+      ["summary", apiUrl("/api/assessment/summary")],
+      ["decisions", apiUrl("/api/assessment/decisions")],
+      ["purchase_orders", apiUrl("/api/assessment/purchase-orders")],
+      ["purchase_requests", apiUrl("/api/purchase-requests")],
+      ["contracts", apiUrl("/api/contracts")],
+      ["suppliers", apiUrl("/api/suppliers")]
     ];
 
     const report = {};
@@ -314,7 +315,7 @@ const handleNewAssessment = async () => {
     setAssessmentRunning(true);
 
     const response = await fetch(
-      "http://localhost:3000/api/assessment/run",
+      apiUrl("/api/assessment/run"),
       {
         method: "POST"
       }
@@ -463,7 +464,7 @@ const handleNewAssessment = async () => {
                 value={search}
                 onChange={e => setSearch(e.target.value)}
               />
-              <kbd>⌘ K</kbd>
+              <kbd>âŒ˜ K</kbd>
             </div>
 
             <button className="icon-button notification-button">
@@ -531,7 +532,7 @@ const handleNewAssessment = async () => {
             <div className="banner-text">
               <strong>Latest assessment completed successfully</strong>
               <span>
-                186 PR lines processed · 151 requirements evaluated ·
+                186 PR lines processed Â· 151 requirements evaluated Â·
                 Zero decision errors
               </span>
             </div>
@@ -768,7 +769,7 @@ const handleNewAssessment = async () => {
                 </div>
                 <div>
                   <strong>Active procurement policy</strong>
-                  <span>CORVO-PROC-POL-04 · Version 5.0</span>
+                  <span>CORVO-PROC-POL-04 Â· Version 5.0</span>
                 </div>
                 <CheckCircle2 size={17} />
               </div>
@@ -776,7 +777,7 @@ const handleNewAssessment = async () => {
           </section>
 
           <footer className="footer">
-            <span>© 2026 ProcureFlow · Intelligent Procurement Platform</span>
+            <span>Â© 2026 ProcureFlow Â· Intelligent Procurement Platform</span>
             <span>Powered by Procurement Decision Engine</span>
           </footer>
             </>
@@ -788,3 +789,4 @@ const handleNewAssessment = async () => {
 }
 
 export default App;
+

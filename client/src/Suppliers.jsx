@@ -1,7 +1,8 @@
+﻿import { apiUrl } from "./api";
 
 import { useEffect, useMemo, useState } from "react";
 
-const API = "http://localhost:3000/api/suppliers";
+const API = apiUrl("/api/suppliers");
 
 export default function Suppliers() {
   const [suppliers, setSuppliers] = useState([]);
@@ -358,7 +359,7 @@ export default function Suppliers() {
                 style={styles.closeButton}
                 onClick={() => setSelected(null)}
               >
-                ✕
+                âœ•
               </button>
             </div>
 
@@ -457,3 +458,4 @@ export default function Suppliers() {
     </div>
   );
 }
+

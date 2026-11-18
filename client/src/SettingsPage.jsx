@@ -1,3 +1,4 @@
+﻿import { apiUrl } from "./api";
 
 import { useEffect, useState } from "react";
 
@@ -25,7 +26,7 @@ export default function SettingsPage() {
   const [savedMessage, setSavedMessage] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/health")
+    fetch(apiUrl("/api/health"))
       .then(response => {
         setBackendStatus(response.ok ? "Connected" : "Unavailable");
       })
@@ -265,3 +266,4 @@ export default function SettingsPage() {
     </div>
   );
 }
+

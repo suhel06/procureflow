@@ -1,4 +1,4 @@
-﻿import { apiUrl } from "./api";
+import { apiUrl } from "./api";
 import { useState, useEffect } from "react";
 import PurchaseRequests from "./components/PurchaseRequests";
 import AIDecisions from "./components/AIDecisions";
@@ -54,7 +54,7 @@ const decisions = [
     decision: "PO",
     route: "SPOT_PO",
     supplier: "S020",
-    value: "â‚¹1,31,675.78",
+    value: "\u20B91,31,675.78",
     status: "Approved"
   },
   {
@@ -64,7 +64,7 @@ const decisions = [
     decision: "PO",
     route: "SPOT_PO",
     supplier: "S023",
-    value: "â‚¹1,39,672.80",
+    value: "\u20B91,39,672.80",
     status: "Approved"
   },
   {
@@ -74,7 +74,7 @@ const decisions = [
     decision: "SOURCING",
     route: "RFQ",
     supplier: "â€”",
-    value: "â‚¹80,300.00",
+    value: "\u20B980,300.00",
     status: "Sourcing"
   },
   {
@@ -84,7 +84,7 @@ const decisions = [
     decision: "SOURCING",
     route: "RFQ",
     supplier: "â€”",
-    value: "â‚¹3,95,027.34",
+    value: "\u20B93,95,027.34",
     status: "Sourcing"
   },
   {
@@ -94,7 +94,7 @@ const decisions = [
     decision: "PO",
     route: "SPOT_PO",
     supplier: "S027",
-    value: "â‚¹1,59,118.30",
+    value: "\u20B91,59,118.30",
     status: "Approved"
   }
 ];
@@ -195,7 +195,7 @@ const sourcingPercentage = decisionTotal
   }));
 
   const formatCrore = (value) =>
-    `â‚¹${(value / 10000000).toFixed(2)} Cr`;
+    `\u20B9${(value / 10000000).toFixed(2)} Cr`;
 
   const metrics = [
     {
@@ -225,7 +225,7 @@ const sourcingPercentage = decisionTotal
         ? formatCrore(summary.total_po_value)
         : "â€”",
       change: summary
-        ? `â‚¹${summary.total_po_value.toLocaleString("en-IN")}`
+        ? `\u20B9${summary.total_po_value.toLocaleString("en-IN")}`
         : "Loading...",
       icon: TrendingUp,
       color: "orange"
@@ -532,7 +532,7 @@ const handleNewAssessment = async () => {
             <div className="banner-text">
               <strong>Latest assessment completed successfully</strong>
               <span>
-                186 PR lines processed Â· 151 requirements evaluated Â·
+                186 PR lines processed \u00B7 151 requirements evaluated \u00B7
                 Zero decision errors
               </span>
             </div>
@@ -769,7 +769,7 @@ const handleNewAssessment = async () => {
                 </div>
                 <div>
                   <strong>Active procurement policy</strong>
-                  <span>CORVO-PROC-POL-04 Â· Version 5.0</span>
+                  <span>CORVO-PROC-POL-04 \u00B7 Version 5.0</span>
                 </div>
                 <CheckCircle2 size={17} />
               </div>
@@ -777,7 +777,7 @@ const handleNewAssessment = async () => {
           </section>
 
           <footer className="footer">
-            <span>Â© 2026 ProcureFlow Â· Intelligent Procurement Platform</span>
+            <span>Â© 2026 ProcureFlow \u00B7 Intelligent Procurement Platform</span>
             <span>Powered by Procurement Decision Engine</span>
           </footer>
             </>

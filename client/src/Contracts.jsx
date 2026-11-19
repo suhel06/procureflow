@@ -1,4 +1,4 @@
-﻿import { apiUrl } from "./api";
+import { apiUrl } from "./api";
 
 import { useEffect, useMemo, useState } from "react";
 
@@ -365,7 +365,7 @@ export default function Contracts() {
                 </h2>
 
                 <p style={styles.muted}>
-                  {selected.supplier_name} Â· {selected.supplier_id}
+                  {selected.supplier_name} \u00B7 {selected.supplier_id}
                 </p>
               </div>
 
@@ -373,7 +373,7 @@ export default function Contracts() {
                 style={styles.button}
                 onClick={closeDetails}
               >
-                âœ• Close
+                 Close
               </button>
             </div>
 

@@ -1,4 +1,4 @@
-﻿import { apiUrl } from "./api";
+import { apiUrl } from "./api";
 
 import { useEffect, useMemo, useState } from "react";
 
@@ -389,7 +389,7 @@ export default function PurchaseOrders() {
                 style={styles.button}
                 onClick={() => setSelected(null)}
               >
-                âœ• Close
+               Close
               </button>
             </div>
 

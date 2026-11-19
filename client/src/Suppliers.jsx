@@ -1,4 +1,4 @@
-﻿import { apiUrl } from "./api";
+import { apiUrl } from "./api";
 
 import { useEffect, useMemo, useState } from "react";
 
@@ -359,7 +359,7 @@ export default function Suppliers() {
                 style={styles.closeButton}
                 onClick={() => setSelected(null)}
               >
-                âœ•
+                
               </button>
             </div>
 
